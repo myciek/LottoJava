@@ -6,23 +6,36 @@
 package javaapplication;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
+
 /**
  *
  * @author Student
  */
 public class Lottery {
-    private int numberOfNumbers;
+    private int amountOfNumbers ;
+    private int numbersLimit;
     private List usersNumbers = new ArrayList();
     private List drawnNumbers = new ArrayList();
     
-    public int getNumberOfNumbers()
+    public int getAmountOfNumbers ()
     {
-        return numberOfNumbers;
+        return amountOfNumbers ;
     }
     
-    public void setNumberOfNumbers(int numberOfNumbers)
+    public void setAmountOfNumbers (int amountOfNumbers )
     {
-        this.numberOfNumbers = numberOfNumbers;
+        this.amountOfNumbers  = amountOfNumbers ;
+    }
+    
+    public int getNumbersLimit()
+    {
+        return numbersLimit;
+    }
+    
+    public void setNumbersLimit(int numbersLimit)
+    {
+        this.numbersLimit = numbersLimit;
     }
     
     public List getUsersNumbers()
@@ -43,5 +56,33 @@ public class Lottery {
     public void setDrawnNumbers(List drawnNumbers)
     {
         this.drawnNumbers = drawnNumbers;
+    }
+    
+    public void DrawNumbers()
+    {
+      ArrayList allPossibleNumbers =  new ArrayList<Integer>();
+      for(int i=0; i < numbersLimit; i++)
+      {
+          allPossibleNumbers.add(i);
+      }
+      Collections.shuffle(allPossibleNumbers);
+      for(int i=0; i <amountOfNumbers;i++)
+      {
+          drawnNumbers.add(allPossibleNumbers.get(i));
+      }
+    }
+    public void NumbersHit()
+    {
+        int numbersHit = 0;
+        for(int i=0; i<amountOfNumbers; i++)
+        {
+            if(drawnNumbers.contains(usersNumbers.get(i)))
+            {
+                System.out.println("Hit: " + usersNumbers.get(i));
+                numbersHit++;
+            }
+        }
+        System.out.println("You hit " + numbersHit + " numbers.");
+
     }
 }

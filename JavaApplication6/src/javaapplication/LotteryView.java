@@ -11,17 +11,18 @@ import java.util.List;
  */
 public class LotteryView {
     
-    public void printLotteryDetails(int numberOfNumbers, List usersNumbers, List drawnNumbers)
+    public void printLotteryDetails(int amountOfNumbers, int numbersLimit, List usersNumbers, List drawnNumbers)
     {
         System.out.println("Lottery:");
-        System.out.println(numberOfNumbers + " will be draw.");
+        System.out.println(amountOfNumbers  + " numbers will be draw.");
+        System.out.println("Victorious numbers will be higher then 1 and smaller than " + numbersLimit +".");
         System.out.println("You picked: ");
-        for(int i =0; i< numberOfNumbers; i++)
+        for(int i =0; i< amountOfNumbers ; i++)
         {
             System.out.println(usersNumbers.get(i));
         }
         System.out.println("Numbers drawn: ");
-        for(int i =0; i< numberOfNumbers; i++)
+        for(int i =0; i< amountOfNumbers ; i++)
         {
             System.out.println(drawnNumbers.get(i));
         }
