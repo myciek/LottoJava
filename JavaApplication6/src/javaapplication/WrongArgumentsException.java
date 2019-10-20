@@ -9,6 +9,8 @@ package javaapplication;
  *
  * @author Maciek
  */
+
+// Custom exception to work with arguments
 public class WrongArgumentsException
      extends Exception {
         public WrongArgumentsException(String errorMessage) {

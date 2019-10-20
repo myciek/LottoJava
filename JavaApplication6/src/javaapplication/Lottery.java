@@ -12,6 +12,8 @@ import java.util.Collections;
  *
  * @author Student
  */
+
+// Model
 public class Lottery {
 //  Amount of numbers user wants to bet
     private int amountOfNumbers ;
