@@ -13,11 +13,15 @@ import java.util.Collections;
  * @author Student
  */
 public class Lottery {
+//  Amount of numbers user wants to bet
     private int amountOfNumbers ;
+//  Numbers should be smaller than that number
     private int numbersLimit;
+// Numbers given by user
     private List usersNumbers = new ArrayList();
+// Numbers drawn
     private List drawnNumbers = new ArrayList();
-    
+ // Functions to get and set properties of Lottery
     public int getAmountOfNumbers ()
     {
         return amountOfNumbers ;
@@ -57,7 +61,7 @@ public class Lottery {
     {
         this.drawnNumbers = drawnNumbers;
     }
-    
+// Function that draw numbers based on amountOfNumbers and numbersLimit    
     public void DrawNumbers()
     {
       ArrayList allPossibleNumbers =  new ArrayList<Integer>();
@@ -71,6 +75,7 @@ public class Lottery {
           drawnNumbers.add(allPossibleNumbers.get(i).toString());
       }
     }
+// Function that check how many numbers user picks were also drawn
     public void NumbersHit()
     {
         int numbersHit = 0;

@@ -9,8 +9,11 @@ import java.util.List;
  *
  * @author Student
  */
+
+//View
 public class LotteryView {
     
+//  Function that prints all properties of Lottery model
     public void printLotteryDetails(int amountOfNumbers, int numbersLimit, List usersNumbers, List drawnNumbers)
     {
         System.out.println("Lottery:");

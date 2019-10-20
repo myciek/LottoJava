@@ -13,16 +13,21 @@ import java.util.Scanner;
  *
  * @author Student
  */
-public class LotteryController {
 
+//Controller
+public class LotteryController {
+    
+    //Model
     private Lottery model;
+    //View
     private LotteryView view;
 
+    //Contructor
     public LotteryController(Lottery model, LotteryView view) {
         this.model = model;
         this.view = view;
     }
-
+    // Functions to get and set properties of Lottery
     public void setLotteryAmountOfNumbers(int amountOfNumbers) {
         model.setAmountOfNumbers(amountOfNumbers);
     }
@@ -54,16 +59,18 @@ public class LotteryController {
     public List getLotterytDrawnNumbers() {
         return model.getDrawnNumbers();
     }
-
+    
+    // Function that update view and checks if users hit any numbers
     public void updateView() {
         view.printLotteryDetails(model.getAmountOfNumbers(), model.getNumbersLimit(), model.getUsersNumbers(), model.getDrawnNumbers());
         model.NumbersHit();
     }
-
+    
+    // Function that draw numbers
     public void LotteryDrawnNumbers() {
         model.DrawNumbers();
     }
-
+    // Exception handling and setting properties of Lottery model
     public void CheckArguments(String[] args) {
         int amountOfNumbers = 0;
         int numbersLimit = 0;
