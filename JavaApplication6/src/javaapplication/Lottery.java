@@ -61,14 +61,14 @@ public class Lottery {
     public void DrawNumbers()
     {
       ArrayList allPossibleNumbers =  new ArrayList<Integer>();
-      for(int i=0; i < numbersLimit; i++)
+      for(int i=1; i < numbersLimit; i++)
       {
           allPossibleNumbers.add(i);
       }
       Collections.shuffle(allPossibleNumbers);
       for(int i=0; i <amountOfNumbers;i++)
       {
-          drawnNumbers.add(allPossibleNumbers.get(i));
+          drawnNumbers.add(allPossibleNumbers.get(i).toString());
       }
     }
     public void NumbersHit()
