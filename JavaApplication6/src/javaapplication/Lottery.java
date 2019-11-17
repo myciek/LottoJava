@@ -23,6 +23,13 @@ public class Lottery {
     private List <Integer> usersNumbers = new ArrayList<>();
 // Numbers drawn
     private List <Integer>drawnNumbers = new ArrayList<>();
+    
+    private enum Result{
+        lose,
+        win;     
+    }
+    
+    private Result result;
  // Functions to get and set properties of Lottery
     public int getAmountOfNumbers ()
     {
@@ -81,16 +88,25 @@ public class Lottery {
     public void NumbersHit()
     {
         int numbersHit = 0;
+        result = Result.lose;
         for(int element:usersNumbers)
         {
             if(drawnNumbers.contains(element))
             {
                 System.out.println("Hit: " + String.valueOf(element));
                 numbersHit++;
+                result = Result.win;
             }
         }
-        System.out.println("You hit " + numbersHit + " numbers.");
-
+        if(result==Result.win)
+        {
+            System.out.println("Nice!"); 
+            System.out.println("You hit " + numbersHit + " numbers.");
+        }
+        else
+        {
+            System.out.println("Try again, no hits.");
+        }
     }
     
     @Deprecated
