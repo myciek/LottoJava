@@ -26,7 +26,7 @@ public class JavaApplication {
         Lottery model = new Lottery();
         LotteryView view = new LotteryView();
         LotteryController controller = new LotteryController(model, view);
-        controller.CheckArguments(args);
+        controller.LotteryCheckArguments(args);
         controller.LotteryDrawnNumbers();
         controller.updateView();
 

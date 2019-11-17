@@ -70,42 +70,18 @@ public class LotteryController {
     public void LotteryDrawnNumbers() {
         model.DrawNumbers();
     }
-    // Exception handling and setting properties of Lottery model
-    public void CheckArguments(String[] args) {
-        int amountOfNumbers = 0;
-        int numbersLimit = 0;
-        List<Integer> usersNumbers = new ArrayList<>();
-        try {
-
-            if (args.length > 0) {
-                if (args.length != Integer.parseInt(args[0]) + 2) {
-                    throw new WrongArgumentsException("Wrong amount of arguments, you have to give it manually.");
-                }
-            } else {
-                throw new WrongArgumentsException("Wrong amount of arguments, you have to give it manually.");
-            }
-            amountOfNumbers = Integer.parseInt(args[0]);
-            numbersLimit = Integer.parseInt(args[1]);
-            for (int i = 2; i < amountOfNumbers + 2; i++) {
-                usersNumbers.add(Integer.parseInt(args[i]));
-            }
-        } catch (WrongArgumentsException ex) {
-            System.out.println(ex.getMessage());
-            Scanner input = new Scanner(System.in);
-            System.out.println("How many numbers you want to bet?");
-            amountOfNumbers = input.nextInt();
-            System.out.println("From what number they have to be smaller?");
-            numbersLimit = input.nextInt();
-
-            for (int i = 0; i < amountOfNumbers; i++) {
-                System.out.println("Pick number: ");
-                usersNumbers.add(input.nextInt());
-            }
+    
+    public void LotteryCheckArguments(String[] args)
+    {
+        try{
+        model.CheckArguments(args);
+        }catch(WrongArgumentsException e)
+        {
+            System.out.println(e.getMessage());
+            System.exit(0);
         }
-
-        setLotteryAmountOfNumbers(amountOfNumbers);
-        setLotteryNumbersLimit(numbersLimit);
-        setLotteryUsersfNumbers(usersNumbers);
     }
+    
+   
 
 }
