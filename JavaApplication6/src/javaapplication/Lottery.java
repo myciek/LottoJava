@@ -20,9 +20,9 @@ public class Lottery {
 //  Numbers should be smaller than that number
     private int numbersLimit;
 // Numbers given by user
-    private List usersNumbers = new ArrayList();
+    private List <Integer> usersNumbers = new ArrayList<>();
 // Numbers drawn
-    private List drawnNumbers = new ArrayList();
+    private List <Integer>drawnNumbers = new ArrayList<>();
  // Functions to get and set properties of Lottery
     public int getAmountOfNumbers ()
     {
@@ -66,7 +66,7 @@ public class Lottery {
 // Function that draw numbers based on amountOfNumbers and numbersLimit    
     public void DrawNumbers()
     {
-      ArrayList allPossibleNumbers =  new ArrayList<Integer>();
+      ArrayList<Integer> allPossibleNumbers =  new ArrayList<>();
       for(int i=1; i < numbersLimit; i++)
       {
           allPossibleNumbers.add(i);
@@ -74,11 +74,27 @@ public class Lottery {
       Collections.shuffle(allPossibleNumbers);
       for(int i=0; i <amountOfNumbers;i++)
       {
-          drawnNumbers.add(allPossibleNumbers.get(i).toString());
+          drawnNumbers.add(allPossibleNumbers.get(i));
       }
     }
 // Function that check how many numbers user picks were also drawn
     public void NumbersHit()
+    {
+        int numbersHit = 0;
+        for(int element:usersNumbers)
+        {
+            if(drawnNumbers.contains(element))
+            {
+                System.out.println("Hit: " + String.valueOf(element));
+                numbersHit++;
+            }
+        }
+        System.out.println("You hit " + numbersHit + " numbers.");
+
+    }
+    
+    @Deprecated
+    public void NumbersHits()
     {
         int numbersHit = 0;
         for(int i=0; i<amountOfNumbers; i++)

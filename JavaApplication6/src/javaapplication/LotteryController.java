@@ -74,7 +74,7 @@ public class LotteryController {
     public void CheckArguments(String[] args) {
         int amountOfNumbers = 0;
         int numbersLimit = 0;
-        List usersNumbers = new ArrayList();
+        List<Integer> usersNumbers = new ArrayList<>();
         try {
 
             if (args.length > 0) {
@@ -87,7 +87,7 @@ public class LotteryController {
             amountOfNumbers = Integer.parseInt(args[0]);
             numbersLimit = Integer.parseInt(args[1]);
             for (int i = 2; i < amountOfNumbers + 2; i++) {
-                usersNumbers.add(args[i]);
+                usersNumbers.add(Integer.parseInt(args[i]));
             }
         } catch (WrongArgumentsException ex) {
             System.out.println(ex.getMessage());
