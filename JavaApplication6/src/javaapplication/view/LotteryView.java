@@ -3,18 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication;
+package javaapplication.view;
 import java.util.List;
 /**
- *
+ * View for Lottery 
  * @author Student
  */
 
 //View
 public class LotteryView {
-    
-//  Function that prints all properties of Lottery model
-    public void printLotteryDetails(int amountOfNumbers, int numbersLimit, List usersNumbers, List drawnNumbers)
+
+    /**
+     * Function that prints all properties of Lottery model
+     * @param amountOfNumbers Amount of numbers user wants to bet
+     * @param numbersLimit Numbers should be smaller than that number
+     * @param usersNumbers Numbers given by user
+     * @param drawnNumbers Numbers drawn
+     * @param numbersHit  How many numbers user bet corectlly
+     */
+    public void printLotteryDetails(int amountOfNumbers, int numbersLimit, List usersNumbers, List drawnNumbers, int numbersHit)
     {
         System.out.println("Lottery:");
         System.out.println(amountOfNumbers  + " numbers will be draw.");
@@ -29,6 +36,7 @@ public class LotteryView {
         {
             System.out.println(drawnNumbers.get(i));
         }
+        System.out.println("You hit " + numbersHit + " numbers.");
     }
     
 }

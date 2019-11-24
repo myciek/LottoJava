@@ -6,14 +6,18 @@
 package javaapplication;
 
 /**
- *
+ *Custom exception to work with arguments
  * @author Maciek
  */
 
-// Custom exception to work with arguments
 public class WrongArgumentsException
      extends Exception {
-        public WrongArgumentsException(String errorMessage) {
+
+    /**
+     * Throw when arguments are incorrect
+     * @param errorMessage - Message that describe error
+     */
+    public WrongArgumentsException(String errorMessage) {
         super(errorMessage);
     }
     

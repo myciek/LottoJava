@@ -3,82 +3,119 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication;
+package javaapplication.model;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import javaapplication.WrongArgumentsException;
 
 /**
- *
+ * Model for Lottery application
  * @author Student
  */
-// Model
+
 public class Lottery {
-//  Amount of numbers user wants to bet
+
 
     private int amountOfNumbers;
-//  Numbers should be smaller than that number
     private int numbersLimit;
-// Numbers given by user
     private List<Integer> usersNumbers = new ArrayList<>();
-// Numbers drawn
     private List<Integer> drawnNumbers = new ArrayList<>();
     private int numbersHit;
 
     private enum Result {
-
         lose,
         win;
     }
 
     private Result result;
-
-    // Functions to get and set properties of Lottery
+    /**
+     *
+     * @return Amount of numbers user wants to bet
+     */
 
     public int getAmountOfNumbers() {
         return amountOfNumbers;
     }
 
+    /**
+     *
+     * @param amountOfNumbers  Amount of numbers user wants to bet
+     */
     public void setAmountOfNumbers(int amountOfNumbers) {
         this.amountOfNumbers = amountOfNumbers;
     }
 
+    /**
+     *
+     * @return Numbers should be smaller than that number
+     */
     public int getNumbersLimit() {
         return numbersLimit;
     }
 
+    /**
+     *
+     * @param numbersLimit -  Numbers should be smaller than that number
+     */
     public void setNumbersLimit(int numbersLimit) {
         this.numbersLimit = numbersLimit;
     }
 
+    /**
+     *
+     * @return Numbers given by user
+     */
     public List getUsersNumbers() {
         return usersNumbers;
     }
 
+    /**
+     *
+     * @param usersNumbers - Numbers given by user
+     */
     public void setUsersNumbers(List usersNumbers) {
         this.usersNumbers = usersNumbers;
     }
 
+    /**
+     *
+     * @return Numbers drawn
+     */
     public List getDrawnNumbers() {
         return drawnNumbers;
     }
 
+    /**
+     *
+     * @param drawnNumbers -  Numbers drawn
+     */
     public void setDrawnNumbers(List drawnNumbers) {
         this.drawnNumbers = drawnNumbers;
     }
 
+    /**
+     *
+     * @return How many numbers user bet corectlly
+     */
     public int getNumbersHit() {
         return numbersHit;
     }
 
+    /**
+     *
+     * @param numbersHit How many numbers user bet corectlly
+     */
     public void setNumbersHit(int numbersHit) {
         this.numbersHit = numbersHit;
-    }
+    }   
 
-// Function that draw numbers based on amountOfNumbers and numbersLimit    
-    public void DrawNumbers() {
+    /**
+     * Function that draw numbers based on amountOfNumbers and numbersLimit
+     */
+    public void drawNumbers() {
         ArrayList<Integer> allPossibleNumbers = new ArrayList<>();
         for (int i = 1; i < numbersLimit; i++) {
             allPossibleNumbers.add(i);
@@ -88,9 +125,11 @@ public class Lottery {
             drawnNumbers.add(allPossibleNumbers.get(i));
         }
     }
-// Function that check how many numbers user picks were also drawn
 
-    public void NumbersHit() {
+    /**
+     * Function that check how many numbers user picked were also drawn
+     */
+    public void numbersHit() {
         numbersHit = 0;
         result = Result.lose;
         for (int element : usersNumbers) {
@@ -101,13 +140,16 @@ public class Lottery {
             }
         }
         if (result == Result.win) {
-            System.out.println("Nice!");
-            System.out.println("You hit " + numbersHit + " numbers.");
+            System.out.println("Nice!");            
         } else {
             System.out.println("Try again, no hits.");
         }
     }
 
+    /**
+     *
+     * @deprecated
+     */
     @Deprecated
     public void NumbersHits() {
         int numbersHit = 0;
@@ -121,9 +163,18 @@ public class Lottery {
 
     }
 
-    // Exception handling and setting properties of Lottery model
+    // 
 
-    public void CheckArguments(String[] args) throws WrongArgumentsException {
+    /**
+     * Exception handling and setting properties of Lottery model
+     * @param args the command line arguments. Firts argument should be number of
+     * numbers you want to bet. Second argument is last number program can pick
+     * (from 1 to this number). Next x arguments(x = first argument) should be
+     * numbers you want to bet.
+     * @throws WrongArgumentsException exception throw when user gives wrong arguments
+     */
+
+    public void checkArguments(String[] args) throws WrongArgumentsException {
         amountOfNumbers = 0;
         numbersLimit = 0;
 
