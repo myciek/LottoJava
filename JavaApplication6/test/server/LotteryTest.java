@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tcpserver;
+package server;
 
-import tcpserver.model.Lottery;
+import server.model.Lottery;
 import java.util.ArrayList;
 import java.util.List;
 

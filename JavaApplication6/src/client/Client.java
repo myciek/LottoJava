@@ -1,10 +1,10 @@
 package client;
-import java.net.*;
 import java.io.*;
 import client.controller.*;
 import client.view.LotteryView;
 import java.net.Socket;
 import java.util.Properties;
+import java.util.Scanner;
 
 public class Client {
 
@@ -50,7 +50,7 @@ public class Client {
         view = new LotteryView();
         controller = new LotteryController(view);
         Properties properties = new Properties();
-        try (FileInputStream in = new FileInputStream("conf.properties")) {
+        try (FileInputStream in = new FileInputStream("JavaApplication6/conf.properties")) {
             properties.load(in);
             address = properties.getProperty("address");
             PORT = Integer.parseInt(properties.getProperty("PORT"));
@@ -73,6 +73,27 @@ public class Client {
             System.out.println("Application can't connect to the server!");
         }
 
+    }
+
+    public void sendRequest(String request) {
+        try {
+            if (!serverConnection) {
+                return;
+            }
+            output.println(request);
+            String response = input.readLine();
+
+        } catch (IOException e) {
+            System.out.println("Cant connect to server.");
+
+        }
+    }
+
+    public static void main(String [] args){
+        Client client = new Client();
+        Scanner input = new Scanner(System.in);
+        String request = input.next();
+        client.sendRequest(request);
     }
 
 }

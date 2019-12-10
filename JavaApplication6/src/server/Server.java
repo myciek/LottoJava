@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tcpserver;
+package server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Properties;
-
+import server.model.*;
 
 /**
  * Main file of Lottery application
  *
  * @author Student
  */
-public class  TCPServer implements Closeable {
+public class Server implements Closeable {
 
 
     /**
@@ -28,14 +28,16 @@ public class  TCPServer implements Closeable {
      */
     private ServerSocket serverSocket;
 
+    private Lottery model;
+
     /**
      * Creates the server socket
      *
      *
      */
-    TCPServer() {
+    Server() {
         Properties properties = new Properties();
-        try (FileInputStream in = new FileInputStream("conf.properties")) {
+        try (FileInputStream in = new FileInputStream("JavaApplication6/conf.properties")) {
             properties.load(in);
             PORT = Integer.parseInt(properties.getProperty("PORT"));
         } catch (IOException | NumberFormatException e) {
@@ -49,25 +51,20 @@ public class  TCPServer implements Closeable {
     }
 
     /**
-     * @param args the command line arguments.Firts argument should be number of
+     * @param args the command line arguments.First argument should be number of
      *             numbers you want to bet. Second argument is last number program can pick
      *             (from 1 to this number). Next x arguments(x = first argument) should be
      *             numbers you want to bet.
      */
     public static void main(String[] args) {
 
-//        Lottery model = new Lottery();
-//        LotteryView view = new LotteryView();
-//        LotteryController client.controller = new LotteryController(model, view);
-//        client.controller.LotteryCheckArguments(args);
-//        client.controller.LotteryDrawnNumbers();
-//        client.controller.updateView();
-        try (TCPServer tcpServer = new TCPServer()) {
+        Lottery model = new Lottery();
+        try (Server server = new Server()) {
             System.out.println("Server started");
             while (true) {
-                Socket socket = tcpServer.serverSocket.accept();
+                Socket socket = server.serverSocket.accept();
                 try (SingleService singleService = new SingleService(socket)) {
-                    singleService.realize();
+                    singleService.realize(model);
                 } catch (IOException e) {
                     System.err.println(e.getMessage());
                 }

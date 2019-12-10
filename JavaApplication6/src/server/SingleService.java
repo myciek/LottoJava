@@ -1,8 +1,16 @@
-package tcpserver;
+package server;
+import server.model.Lottery;
+
 import java.net.*;
 import java.io.*;
+import java.util.ArrayList;
 
 public class SingleService implements Closeable {
+
+    private static final String help = "HELP: First argument should be number of\n" +
+            "     * numbers you want to bet. Second argument is last number program can pick\n" +
+            "     * (from 1 to this number). Next x arguments(x = first argument) should be\n" +
+            "     * numbers you want to bet.";
     /**
      * socket representing connection to the client
      */
@@ -36,17 +44,32 @@ public class SingleService implements Closeable {
     /**
      * Realizes the service
      */
-    public void realize() {
+    public void realize(Lottery model) {
         try {
-            output.println("Welcome to Java Sever");
-
+            output.println("Service start");
+            String data;
+            String[] answer;
             while (true) {
-                String str = input.readLine();
-                output.println("Server answers: " + str);
-                if (str.toUpperCase().equals("QUIT")) {
+                data = input.readLine();
+                if(data != null){
+                answer = data.split(",");
+                try {
+                    model.checkArguments(answer);
+                    model.drawNumbers();
+                    model.numbersHit();
+
+                }catch (WrongArgumentsException e)
+                {
+                    System.out.println(e.getMessage());
+                }
+
+                if (data.toUpperCase().equals("QUIT")) {
                     break;
                 }
-                System.out.println("Client sent: " + str);
+                System.out.println("Client sent: " + data);
+                output.flush();
+
+            }
             }
             System.out.println("closing...");
         } catch (IOException e) {

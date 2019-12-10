@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tcpserver.model;
+package server.model;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-import tcpserver.WrongArgumentsException;
+import server.WrongArgumentsException;
 
 /**
  * Model for Lottery application
@@ -167,7 +167,7 @@ public class Lottery {
 
     /**
      * Exception handling and setting properties of Lottery model
-     * @param args the command line arguments. Firts argument should be number of
+     * @param args the command line arguments. First argument should be number of
      * numbers you want to bet. Second argument is last number program can pick
      * (from 1 to this number). Next x arguments(x = first argument) should be
      * numbers you want to bet.

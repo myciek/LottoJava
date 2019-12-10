@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tcpserver;
+package server;
 
 /**
  *Custom exception to work with arguments

@@ -5,10 +5,10 @@
  */
 package client.controller;
 
-import tcpserver.model.Lottery;
+import server.model.Lottery;
 import java.util.List;
 
-import tcpserver.WrongArgumentsException;
+import server.WrongArgumentsException;
 import client.view.*;
 
 /**
