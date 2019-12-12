@@ -18,11 +18,12 @@ public class SingleService implements Closeable {
     /**
      * buffered input character stream
      */
-    private BufferedReader input;
+    private BufferedReader in;
     /**
      * Formatted output character stream
      */
-    private PrintWriter output;
+    private PrintWriter out;
+
 
     /**
      * The constructor of instance of the SingleService class. Use the socket as
@@ -30,15 +31,24 @@ public class SingleService implements Closeable {
      *
      * @param socket socket representing connection to the client
      */
+    private String response;
+
+    private String request;
+
+    private String [] args;
+
     public SingleService(Socket socket) throws IOException {
-        this.socket = socket;
-        output = new PrintWriter(
-                new BufferedWriter(
-                        new OutputStreamWriter(
-                                socket.getOutputStream())), true);
-        input = new BufferedReader(
-                new InputStreamReader(
-                        socket.getInputStream()));
+        try {
+            this.socket=socket;
+
+            in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            out=new PrintWriter(
+                    new BufferedWriter(
+                            new OutputStreamWriter(
+                                    socket.getOutputStream())),true);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     /**
@@ -46,37 +56,44 @@ public class SingleService implements Closeable {
      */
     public void realize(Lottery model) {
         try {
-            output.println("Service start");
-            String data;
-            String[] answer;
-            while (true) {
-                data = input.readLine();
-                if(data != null){
-                answer = data.split(",");
-                try {
-                    model.checkArguments(answer);
-                    model.drawNumbers();
-                    model.numbersHit();
-
-                }catch (WrongArgumentsException e)
+            out.println("Service start");
+            boolean connect = true;
+            while(connect) {
+                String str = in.readLine();
+                System.out.println("Clinet sent: " + str);
+                switch (str.toUpperCase())
                 {
-                    System.out.println(e.getMessage());
+                    case "HELP":
+                        out.println(help);
+                        break;
+
+                    case "QUIT":
+                        out.println("QUIT");
+                        connect = false;
+                        break;
+
+                    default:
+                        out.println("Arguments accepted");
+                        String args[] = str.split(",");
+                        try{
+                            model.checkArguments(args);
+                            out.println("Gitara");
+
+                        }
+                        catch (WrongArgumentsException e)
+                        {
+                            out.println(e.getMessage());
+                        }
                 }
 
-                if (data.toUpperCase().equals("QUIT")) {
-                    break;
-                }
-                System.out.println("Client sent: " + data);
-                output.flush();
-
+        }
+        }catch (IOException e)
+            {
+                System.err.println(e.getMessage());
             }
-            }
-            System.out.println("closing...");
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        } finally {
+        finally {
             try {
-                socket.close();
+                close();
             } catch (IOException e) {
                 System.err.println(e.getMessage());
             }
