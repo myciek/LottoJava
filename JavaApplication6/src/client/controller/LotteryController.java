@@ -117,16 +117,7 @@ public class LotteryController {
         model.setNumbersHit(numbersHit);
     }   
 
-    
 
-    /**
-     *  Function that update view and checks if users hit any numbers
-     */
-    public void updateView() {
-        model.numbersHit();
-        view.printLotteryDetails(model.getAmountOfNumbers(), model.getNumbersLimit(), model.getUsersNumbers(), model.getDrawnNumbers(), model.getNumbersHit());
-        
-    }
 
     /**
      *Function that draw numbers

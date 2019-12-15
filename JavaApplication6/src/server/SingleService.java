@@ -31,21 +31,16 @@ public class SingleService implements Closeable {
      *
      * @param socket socket representing connection to the client
      */
-    private String response;
-
-    private String request;
-
-    private String [] args;
 
     public SingleService(Socket socket) throws IOException {
         try {
             this.socket=socket;
 
-            in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            in=new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
             out=new PrintWriter(
                     new BufferedWriter(
                             new OutputStreamWriter(
-                                    socket.getOutputStream())),true);
+                                   this.socket.getOutputStream())),true);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
@@ -53,6 +48,7 @@ public class SingleService implements Closeable {
 
     /**
      * Realizes the service
+     * @param model Lottery model
      */
     public void realize(Lottery model) {
         try {
@@ -77,7 +73,8 @@ public class SingleService implements Closeable {
                         String args[] = str.split(",");
                         try{
                             model.checkArguments(args);
-                            out.println("Gitara");
+                            model.drawNumbers();
+                            out.println(model.printLotteryDetails());
 
                         }
                         catch (WrongArgumentsException e)
@@ -100,6 +97,10 @@ public class SingleService implements Closeable {
         }
     }
 
+    /**
+     * Function that closes socket      *
+     * @throws IOException
+     */
     @Override
     public void close() throws IOException {
         if (socket != null) {

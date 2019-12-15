@@ -40,7 +40,7 @@ public class Server implements Closeable {
         try (FileInputStream in = new FileInputStream("JavaApplication6/conf.properties")) {
             properties.load(in);
             PORT = Integer.parseInt(properties.getProperty("PORT"));
-            Lottery model = new Lottery();
+            this.model = new Lottery();
         } catch (IOException | NumberFormatException e) {
             System.out.println(e.getMessage());
         }
@@ -74,6 +74,11 @@ public class Server implements Closeable {
             System.err.println(e.getMessage());
         }
     }
+
+    /**
+     * Funcion that closes socket
+     * @throws IOException
+     */
 
     @Override
     public void close() throws IOException {

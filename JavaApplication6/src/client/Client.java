@@ -37,13 +37,16 @@ public class Client {
      */
     private LotteryController controller;
 
-    private  LotteryView view;
 
     /**
      * Contains information about connection with server. True if it was
      * succesful.
      */
     private boolean serverConnection;
+
+    /**
+     * Constructor for client
+     */
 
     Client() {
         try {
@@ -60,34 +63,17 @@ public class Client {
                     new BufferedWriter(
                             new OutputStreamWriter(
                                     this.socket.getOutputStream())), true);
-            input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            input = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
 
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
 
+    /**
+     * Function that close socket
+     */
 
-
-//    public void write(String request) {
-//        try {
-//            output.writeBytes(request +'\n');
-//        } catch (IOException e) {
-//            System.err.println(e.getMessage());
-//        }
-//
-//        }
-//
-//    public String read(){
-//
-//        String result="";
-//        try {
-//            result = input.readLine();
-//        } catch (IOException e) {
-//            System.err.println(e.getMessage());
-//        }
-//        return result;
-//    }
     public void close(){
 
         try {
@@ -100,12 +86,26 @@ public class Client {
     }
 
 
-    public static void main(String [] args){
+    public static void main(String [] args) {
 
         Client client = new Client();
-        Scanner scanner  = new Scanner(System.in);
-        String str = scanner.next();
-        client.output.println(str);
+        Scanner scanner = new Scanner(System.in);
+        String str;
+        String in;
+        do {
+            str = scanner.next();
+            client.output.println(str);
+            {
+                try {
+                    do {
+                        in = client.input.readLine();
+                        System.out.println(in);
+                    }while(in != null);
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }while(str.toUpperCase() != "QUIT");
     }
 
 }

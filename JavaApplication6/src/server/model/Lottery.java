@@ -204,4 +204,20 @@ public class Lottery {
             throw new WrongArgumentsException("Bad arguments");
         }
     }
+
+    public String printLotteryDetails()
+    {
+        String details = "Lottery: \n" + amountOfNumbers + " numbers will be draw.\n" + "Victorious numbers will be higher then 1 and smaller than " +numbersLimit + "\nYou picked: ";
+        for(int i =0; i< amountOfNumbers ; i++)
+        {
+            details+=(usersNumbers.get(i)) + " ";
+        }
+        details+= "\nNumbers drawn: ";
+        for(int i =0; i< amountOfNumbers ; i++)
+        {
+            details+=(drawnNumbers.get(i)) + " ";
+        }
+        details+= "\nYou hit " + numbersHit + " numbers.";
+        return  details;
+    }
 }
