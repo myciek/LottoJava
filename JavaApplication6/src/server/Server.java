@@ -40,6 +40,7 @@ public class Server implements Closeable {
         try (FileInputStream in = new FileInputStream("JavaApplication6/conf.properties")) {
             properties.load(in);
             PORT = Integer.parseInt(properties.getProperty("PORT"));
+            this.model = new Lottery();
         } catch (IOException | NumberFormatException e) {
             System.out.println(e.getMessage());
         }
@@ -58,13 +59,13 @@ public class Server implements Closeable {
      */
     public static void main(String[] args) {
 
-        Lottery model = new Lottery();
+
         try (Server server = new Server()) {
             System.out.println("Server started");
             while (true) {
                 Socket socket = server.serverSocket.accept();
                 try (SingleService singleService = new SingleService(socket)) {
-                    singleService.realize(model);
+                    singleService.realize(server.model);
                 } catch (IOException e) {
                     System.err.println(e.getMessage());
                 }
@@ -73,6 +74,11 @@ public class Server implements Closeable {
             System.err.println(e.getMessage());
         }
     }
+
+    /**
+     * Funcion that closes socket
+     * @throws IOException
+     */
 
     @Override
     public void close() throws IOException {

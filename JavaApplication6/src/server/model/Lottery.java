@@ -201,30 +201,23 @@ public class Lottery {
             }
         } else {
 
-            Scanner input = new Scanner(System.in);
-            System.out.println("How many numbers you want to bet?");
-            amountOfNumbers = input.nextInt();
-            if (amountOfNumbers < 1) {
-                throw new WrongArgumentsException("Argument out of scope.");
-            }
-
-            System.out.println("From what number they have to be smaller?");
-            numbersLimit = input.nextInt();
-
-            if (numbersLimit < 1) {
-                throw new WrongArgumentsException("Argument out of scope.");
-            }
-
-            for (int i = 0; i < amountOfNumbers; i++) {
-                System.out.println("Pick number: ");
-                int number = input.nextInt();
-                if (number < numbersLimit) {
-                    usersNumbers.add(number);
-                } else {
-                    throw new WrongArgumentsException("Argument out of scope.");
-
-                }
-            }
+            throw new WrongArgumentsException("Bad arguments");
         }
+    }
+
+    public String printLotteryDetails()
+    {
+        String details = "Lottery: \n" + amountOfNumbers + " numbers will be draw.\n" + "Victorious numbers will be higher then 1 and smaller than " +numbersLimit + "\nYou picked: ";
+        for(int i =0; i< amountOfNumbers ; i++)
+        {
+            details+=(usersNumbers.get(i)) + " ";
+        }
+        details+= "\nNumbers drawn: ";
+        for(int i =0; i< amountOfNumbers ; i++)
+        {
+            details+=(drawnNumbers.get(i)) + " ";
+        }
+        details+= "\nYou hit " + numbersHit + " numbers.";
+        return  details;
     }
 }

@@ -11,7 +11,7 @@ public class Client {
     /**
      * Represents socket, that connects with server.
      */
-    private Socket clientSocket;
+    private Socket socket;
     /**
      * Formated output stream.
      */
@@ -37,7 +37,6 @@ public class Client {
      */
     private LotteryController controller;
 
-    private  LotteryView view;
 
     /**
      * Contains information about connection with server. True if it was
@@ -45,55 +44,68 @@ public class Client {
      */
     private boolean serverConnection;
 
-    Client()
-    {
-        view = new LotteryView();
-        controller = new LotteryController(view);
-        Properties properties = new Properties();
-        try (FileInputStream in = new FileInputStream("JavaApplication6/conf.properties")) {
-            properties.load(in);
-            address = properties.getProperty("address");
-            PORT = Integer.parseInt(properties.getProperty("PORT"));
-        } catch (IOException | NumberFormatException e) {
-            System.out.println("Error in configuration files!");
-        }
+    /**
+     * Constructor for client
+     */
+
+    Client() {
         try {
-            clientSocket = new Socket(address, PORT);
-            if (clientSocket != null && clientSocket.isConnected()) {
-                serverConnection = true;
+            Properties properties = new Properties();
+            try (FileInputStream in = new FileInputStream("JavaApplication6/conf.properties")) {
+                properties.load(in);
+                address = properties.getProperty("address");
+                PORT = Integer.parseInt(properties.getProperty("PORT"));
+            } catch (IOException | NumberFormatException e) {
+                System.out.println("Error in configuration files!");
             }
+            socket = new Socket(address, PORT);
             output = new PrintWriter(
                     new BufferedWriter(
                             new OutputStreamWriter(
-                                    clientSocket.getOutputStream())), true);
-            input = new BufferedReader(
-                    new InputStreamReader(
-                            clientSocket.getInputStream()));
-        } catch (IOException e) {
-            System.out.println("Application can't connect to the server!");
-        }
+                                    this.socket.getOutputStream())), true);
+            input = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
 
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
-    public void sendRequest(String request) {
+    /**
+     * Function that close socket
+     */
+
+    public void close(){
+
         try {
-            if (!serverConnection) {
-                return;
-            }
-            output.println(request);
-            String response = input.readLine();
-
+            output.close();
+            input.close();
+            socket.close();
         } catch (IOException e) {
-            System.out.println("Cant connect to server.");
-
+            System.err.println(e.getMessage());
         }
     }
 
-    public static void main(String [] args){
+
+    public static void main(String [] args) {
+
         Client client = new Client();
-        Scanner input = new Scanner(System.in);
-        String request = input.next();
-        client.sendRequest(request);
+        Scanner scanner = new Scanner(System.in);
+        String str;
+        String in;
+        do {
+            str = scanner.next();
+            client.output.println(str);
+            {
+                try {
+                    do {
+                        in = client.input.readLine();
+                        System.out.println(in);
+                    }while(in != null);
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }while(str.toUpperCase() != "QUIT");
     }
 
 }
