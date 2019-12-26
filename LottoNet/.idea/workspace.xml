@@ -1,13 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45b929cb-e784-4e65-85c4-43b6b958b499" name="Default Changelist" comment="" />
+    <list default="true" id="45b929cb-e784-4e65-85c4-43b6b958b499" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../JavaApplication6/.idea/JavaApplication6.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LottoJava.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/conf/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/servlets/Draw.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/net/view/LotteryView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/server/LotteryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LottoNet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LottoNet.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/exceptions/WrongArgumentsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/exceptions/WrongArgumentsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/model/Lottery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/model/Lottery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/view/LotteryView.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="LottoNet" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1V7SZ3Deqi51c2MK5NuM34NSoeB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -15,14 +52,33 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/java/exceptions" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="findjar.last.used.dir" value="$USER_HOME$/Downloads" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/conf" />
+      <recent name="$PROJECT_DIR$/web/WEB-INF" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/java/exceptions" />
       <recent name="$PROJECT_DIR$/src/java/model" />
       <recent name="$PROJECT_DIR$/src/java/view" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <module name="LottoNet" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -49,10 +105,62 @@
     </task>
     <servers />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="233" y="79" width="892" height="553" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577388425866">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="245" y="101" width="1084" height="744" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1366.768/0.27.1920.1053@0.27.1920.1053" timestamp="1576849651005" />
+    <state x="2094" y="54" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1366.768/0.27.1920.1053@1920.0.1366.768" timestamp="1576759008861" />
+    <state x="233" y="79" width="892" height="553" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1299.741@67.27.1299.741" timestamp="1577388425866" />
+    <state x="630" y="277" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1576849650116">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="630" y="277" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog/1920.0.1366.768/0.27.1920.1053@0.27.1920.1053" timestamp="1576849650116" />
+    <state x="2368" y="182" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog/1920.0.1366.768/0.27.1920.1053@1920.0.1366.768" timestamp="1576759007407" />
+    <state x="534" y="200" width="530" height="531" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1577388446983">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="690" y="273" width="530" height="531" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1920.0.1366.768/0.27.1920.1053@0.27.1920.1053" timestamp="1576827316205" />
+    <state x="534" y="200" width="530" height="531" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/67.27.1299.741@67.27.1299.741" timestamp="1577388446983" />
+    <state x="249" y="27" width="925" height="741" key="CommitChangelistDialog2" timestamp="1577388815787">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="249" y="27" width="925" height="741" key="CommitChangelistDialog2/67.27.1299.741@67.27.1299.741" timestamp="1577388815787" />
+    <state x="701" y="219" width="424" height="513" key="FileChooserDialogImpl" timestamp="1576827311805">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="701" y="219" key="FileChooserDialogImpl/1920.0.1366.768/0.27.1920.1053@0.27.1920.1053" timestamp="1576827311805" />
+    <state x="2419" y="140" width="424" height="513" key="FileChooserDialogImpl/1920.0.1366.768/0.27.1920.1053@1920.0.1366.768" timestamp="1576759127592" />
+    <state x="262" y="38" width="900" height="730" key="SettingsEditor" timestamp="1577388529865">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="288" y="64" key="SettingsEditor/1920.0.1366.768/0.27.1920.1053@0.27.1920.1053" timestamp="1576848330068" />
+    <state x="2125" y="27" width="1024" height="741" key="SettingsEditor/1920.0.1366.768/0.27.1920.1053@1920.0.1366.768" timestamp="1576759129693" />
+    <state x="262" y="38" width="900" height="730" key="SettingsEditor/67.27.1299.741@67.27.1299.741" timestamp="1577388529865" />
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1576603239209">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1576603239209" />
+    <state x="613" y="157" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1576833311039">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="613" y="157" width="683" height="764" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1366.768/0.27.1920.1053@0.27.1920.1053" timestamp="1576833311039" />
+    <state x="605" y="275" width="710" height="528" key="find.popup" timestamp="1576827369587">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="605" y="275" width="710" height="528" key="find.popup/1920.0.1366.768/0.27.1920.1053@0.27.1920.1053" timestamp="1576827369587" />
+    <state x="67" y="27" width="1289" height="741" key="new project wizard" timestamp="1577387600806">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="1987" y="27" width="1299" height="741" key="new project wizard/1920.0.1366.768/0.27.1920.1053@1920.0.1366.768" timestamp="1576750314525" />
+    <state x="67" y="27" width="1289" height="741" key="new project wizard/67.27.1299.741@67.27.1299.741" timestamp="1577387600806" />
+    <state x="427" y="113" width="672" height="655" key="search.everywhere.popup" timestamp="1577388513293">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="2299" y="89" width="672" height="678" key="search.everywhere.popup/1920.0.1366.768/0.27.1920.1053@1920.0.1366.768" timestamp="1576759093998" />
+    <state x="427" y="113" width="672" height="655" key="search.everywhere.popup/67.27.1299.741@67.27.1299.741" timestamp="1577388513293" />
   </component>
 </project>

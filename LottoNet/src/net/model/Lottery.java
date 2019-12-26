@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package java.model;
+package net.model;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-import exceptions.WrongArgumentsException;
+import net.exceptions.WrongArgumentsException;
+
 /**
  * Model for Lottery application
  * @author Student
@@ -23,6 +24,7 @@ public class Lottery {
     private List<Integer> usersNumbers = new ArrayList<>();
     private List<Integer> drawnNumbers = new ArrayList<>();
     private int numbersHit;
+    private List<String> history;
 
     private enum Result {
         lose,
@@ -109,7 +111,40 @@ public class Lottery {
      */
     public void setNumbersHit(int numbersHit) {
         this.numbersHit = numbersHit;
-    }   
+    }
+
+    public List<String> getHistory() {
+        return history;
+    }
+
+    public void setHistory(List<String> history) {
+        this.history = history;
+    }
+
+    public String createNewEntry()
+    {
+        String entry = "";
+        entry += "Amount of numbers: " + amountOfNumbers + "\n";
+        entry += "Numbers limit: " + numbersLimit + "\n";
+        entry+= "Your numbers: ";
+        for(int number: usersNumbers)
+        {
+            entry+= number + " ";
+        }
+        entry+= "\nNumbers drawn: ";
+        for(int number: drawnNumbers)
+        {
+            entry+= number + " ";
+        }
+        entry+="\nYou hit " + numbersHit + " numbers.\n";
+
+        return entry;
+    }
+
+    public void clearHistory()
+    {
+        history.clear();
+    }
 
     /**
      * Function that draw numbers based on amountOfNumbers and numbersLimit
@@ -173,24 +208,24 @@ public class Lottery {
      * @throws WrongArgumentsException exception throw when user gives wrong arguments
      */
 
-    public void checkArguments(String[] args) throws WrongArgumentsException {
+    public void checkArguments(ArrayList<String> args) throws WrongArgumentsException {
         amountOfNumbers = 0;
         numbersLimit = 0;
 
-        if (args.length > 0)  {
+        if (args.size() > 0)  {
 
-            amountOfNumbers = Integer.parseInt(args[0]);
+            amountOfNumbers = Integer.parseInt(args.get(0));
             if (amountOfNumbers < 1) {
                 throw new WrongArgumentsException("Argument out of scope.");
             }
 
-            numbersLimit = Integer.parseInt(args[1]);
-            if (numbersLimit < 1 && args.length == Integer.parseInt(args[0]) + 2) {
+            numbersLimit = Integer.parseInt(args.get(1));
+            if (numbersLimit < 1 && args.size() == Integer.parseInt(args.get(0)) + 2) {
                 throw new WrongArgumentsException("Argument out of scope.");
             }
             for (int i = 2; i < amountOfNumbers + 2; i++) {
-                if (Integer.parseInt(args[i]) < numbersLimit) {
-                    usersNumbers.add(Integer.parseInt(args[i]));
+                if (Integer.parseInt(args.get(i)) < numbersLimit) {
+                    usersNumbers.add(Integer.parseInt(args.get(i)));
 
                 } else {
                     throw new WrongArgumentsException("Argument out of scope.");
