@@ -113,14 +113,26 @@ public class Lottery {
         this.numbersHit = numbersHit;
     }
 
+    /**
+     *
+     * @return History of lotteries
+     */
     public List<String> getHistory() {
         return history;
     }
 
+    /**
+     *
+     * @param history - History of lotteries
+     */
     public void setHistory(List<String> history) {
         this.history = history;
     }
 
+    /**
+     *
+     * @return String with entry to save in history
+     */
     public String createNewEntry()
     {
         String entry = "";
@@ -141,6 +153,9 @@ public class Lottery {
         return entry;
     }
 
+    /**
+     * Clears history
+     */
     public void clearHistory()
     {
         history.clear();
