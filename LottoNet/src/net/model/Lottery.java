@@ -24,7 +24,7 @@ public class Lottery {
     private List<Integer> usersNumbers = new ArrayList<>();
     private List<Integer> drawnNumbers = new ArrayList<>();
     private int numbersHit;
-    private List<String> history;
+    private String history;
 
     private enum Result {
         lose,
@@ -113,11 +113,11 @@ public class Lottery {
         this.numbersHit = numbersHit;
     }
 
-    public List<String> getHistory() {
+    public String getHistory() {
         return history;
     }
 
-    public void setHistory(List<String> history) {
+    public void setHistory(String history) {
         this.history = history;
     }
 
@@ -141,10 +141,7 @@ public class Lottery {
         return entry;
     }
 
-    public void clearHistory()
-    {
-        history.clear();
-    }
+
 
     /**
      * Function that draw numbers based on amountOfNumbers and numbersLimit

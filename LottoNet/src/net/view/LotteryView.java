@@ -72,6 +72,8 @@ public class LotteryView {
         return response;
     }
 
+
+
     public void setLotteriesCount(int lotteriesCount) {
         this.lotteriesCount = lotteriesCount;
     }

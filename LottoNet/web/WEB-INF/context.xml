@@ -1,0 +1,12 @@
+ <Context>
+		<Resource name="jdbc/lottoDB"
+		auth="Container"
+		type="javax.sql.DataSource"
+		username="user"
+		password="password"
+		driverClassName="com.mysql.jdbc.Driver"
+		url="jdbc:mysql:/localost:3306/anagramsDB"
+		maxActive="1500"
+		maxIdle="30"/>
+
+	</Context>
